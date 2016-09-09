@@ -1,20 +1,28 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-import com.qualcomm.modernrobotics.ModernRoboticsUsbUtil;
-import com.qualcomm.hardware.modernrobotics.ModernRoboticsUsbDcMotorController;
-import com.qualcomm.hardware.modernrobotics.ModernRoboticsUsbServoController;
-import com.qualcomm.hardware.modernrobotics.PretendModernRoboticsUsbDevice;
-import com.qualcomm.hardware.modernrobotics.ModernRoboticsDigitalTouchSensor;
-import com.qualcomm.hardware.matrix.MatrixDcMotorController;
-import com.qualcomm.hardware.matrix.MatrixServoController;
-import com.qualcomm.hardware.matrix.MatrixMasterController;
+import android.graphics.Path;
+
+import com.qualcomm.robotcore.eventloop.opmode.OpMode
+import com.qualcomm.robotcore.hardware.DcMotor;
+
+import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.Range;
+import com.qualcomm.robotcore.hardware.DeviceManager;
+ 
 /**
  * Created by Andreaslc1103 on 9/6/2016.
  */
-public class TestBotMap {
+public class TestBotMap extends OpMode{
+
+    DcMotor Right;
+    DcMotor Left;
+    public void OpMode() {
+
+        Right = hardwareMap.dcMotor.get("Right Motor");
+        Left = hardwareMap.dcMotor.get("Left Motor");
 
 
-//bull shit comment oop
-
-    
-}
+        Right.setPower(0);
+        Left.setPower(9);
+    }
