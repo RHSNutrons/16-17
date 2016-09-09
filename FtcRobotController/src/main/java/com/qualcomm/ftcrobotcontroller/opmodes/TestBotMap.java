@@ -23,7 +23,7 @@ public abstract class TestBotMap extends OpMode {
     @Override
     public void init_loop() {
 
-    Right = hardwareMap.dcMotor.get("Right Motor");
+        Right = hardwareMap.dcMotor.get("Right Motor");
         Left = hardwareMap.dcMotor.get("Left Motor");
 
 
