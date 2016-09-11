@@ -47,9 +47,9 @@ import com.qualcomm.robotcore.hardware.IrSeekerSensor;
  */
 public class IrSeekerOp extends OpMode {
 
-  final static double MOTOR_POWER = 0.20; // Higher values will cause the robot to move faster
+  final static double MOTOR_POWER = 0.25; // Higher values will cause the robot to move faster
 
-  final static double HOLD_IR_SIGNAL_STRENGTH = 0.20; // Higher values will cause the robot to follow closer
+  final static double HOLD_IR_SIGNAL_STRENGTH = 0.25; // Higher values will cause the robot to follow closer
 
   IrSeekerSensor irSeeker;
   DcMotor motorRight;
