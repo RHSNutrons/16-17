@@ -1,6 +1,5 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.configuration.MotorConfiguration;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -12,43 +11,36 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 import com.qualcomm.robotcore.hardware.DeviceManager;
 
-import junit.framework.Test;
+
+
+
 
 /**
- * Created by Joshua Young on 9/8/2016.
+ * Created by Juan Rivera on 9/16/2016.
  */
-public abstract class TestBotTeleOp extends OpMode {
+public abstract class TestBotTeleOp extends OpMode{
+    //motors
+    DcMotor motorRight;
+    DcMotor motorLeft;
 
-    DcMotor Right;
-    DcMotor Left;
+public void start (){
+    //mapping out the motors
+    motorRight = hardwareMap.dcMotor.get("motor_1");
+    motorLeft = hardwareMap.dcMotor.get("motor_2");
+    }
+    public void loop () {
+    //throttle and direction
+        float throttle = -gamepad1.left_stick_y;
+        float direction = gamepad1.left_stick_x;
+    //tank drive calculations
+        float right = throttle - direction;
+        float left = throttle + direction;
 
-    @Override
-    public void init() {
-
-        Right = hardwareMap.dcMotor.get("Right Motor");
-        Left = hardwareMap.dcMotor.get("Left Motor");
-
-
-
-
+    //setting the motor powers
+        motorRight.setPower(right);
+        motorLeft.setPower(left);
 
     }
-    @Override
-    public void loop (){
-
-        float forward = -gamepad1.right_trigger;
-        float back = -gamepad1.left_trigger;
-
-        forward = Range.clip(forward, -1, 1);
-        back = Range.clip(back, -1, 1);
-
-        Right.setPower(forward);
-        Left.setPower(forward);
-
-        Right.setPower(back);
-        Left.setPower(back);
 
 
-
-    }
 }
